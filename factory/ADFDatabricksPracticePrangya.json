@@ -1,0 +1,15 @@
+{
+	"name": "ADFDatabricksPracticePrangya",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "7f6a9b02-15bf-4e81-bb13-0ea7ef441b54",
+		"tenantId": "1cf6929d-283c-43b6-ad1a-3df928eab2b7"
+	}
+}
