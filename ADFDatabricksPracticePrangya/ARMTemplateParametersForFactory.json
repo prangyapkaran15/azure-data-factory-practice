@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "ADFDatabricksPracticePrangya"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://adfstorageprangya.dfs.core.windows.net/"
+		},
+		"tr_injection_raw_to_bronze_properties_typeProperties_scope": {
+			"value": "/subscriptions/8f26bbba-d67e-42eb-9ff0-a76ccd76f393/resourceGroups/rg_practice_adf/providers/Microsoft.Storage/storageAccounts/adfstorageprangya"
+		},
+		"triger_init_injection_properties_typeProperties_scope": {
+			"value": "/subscriptions/8f26bbba-d67e-42eb-9ff0-a76ccd76f393/resourceGroups/rg_practice_adf/providers/Microsoft.Storage/storageAccounts/adfstorageprangya"
+		}
+	}
+}

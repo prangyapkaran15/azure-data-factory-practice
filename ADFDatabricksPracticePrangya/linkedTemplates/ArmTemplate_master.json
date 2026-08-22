@@ -1,0 +1,63 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "ADFDatabricksPracticePrangya"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adfstorageprangya.dfs.core.windows.net/"
+		},
+		"tr_injection_raw_to_bronze_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/8f26bbba-d67e-42eb-9ff0-a76ccd76f393/resourceGroups/rg_practice_adf/providers/Microsoft.Storage/storageAccounts/adfstorageprangya"
+		},
+		"triger_init_injection_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/8f26bbba-d67e-42eb-9ff0-a76ccd76f393/resourceGroups/rg_practice_adf/providers/Microsoft.Storage/storageAccounts/adfstorageprangya"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ADFDatabricksPracticePrangya_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"triger_init_injection_properties_typeProperties_scope": {
+						"value": "[parameters('triger_init_injection_properties_typeProperties_scope')]"
+					},
+					"tr_injection_raw_to_bronze_properties_typeProperties_scope": {
+						"value": "[parameters('tr_injection_raw_to_bronze_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
