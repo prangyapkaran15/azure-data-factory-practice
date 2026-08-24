@@ -95,7 +95,17 @@
 							"outputs": [
 								{
 									"referenceName": "ds_raw_parquet",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"directoryPath": {
+											"value": "@item().target_path",
+											"type": "Expression"
+										},
+										"fileName": {
+											"value": "@concat(item().table_name,'_',pipeline().RunId,'.parquet')",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
