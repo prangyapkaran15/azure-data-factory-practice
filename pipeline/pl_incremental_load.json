@@ -34,7 +34,7 @@
 					{
 						"activity": "lkp_watermark",
 						"dependencyConditions": [
-							"Skipped"
+							"Succeeded"
 						]
 					}
 				],
